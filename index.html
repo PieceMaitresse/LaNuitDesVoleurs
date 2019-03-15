@@ -31,7 +31,7 @@
 			<section id="hacking" v-if="activeSection == 'hacking'">
 				<div class="container">
 					<div id="codeInput">
-						<h3> Entrer le code </h3>
+						<h1>Argent : {{ user.cash }} $</h1>
 						<div>
 							<input type="text" name="codeFinal" placeholder="Entrez un code" v-model="inputCode" @keyup.enter="verifyCode"
 							 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
@@ -39,7 +39,6 @@
 							<br>
 							<input type="submit" value="Valider" v-on:click="verifyCode">
 						</div>
-						<p v-if="user.cash > 0">Argent volé : {{ user.cash }} $</p>
 					</div>
 				</div>
 			</section>
@@ -53,9 +52,15 @@
 
 			<!-- MENU DE NAVIGATION -->
 			<nav>
-				<img id="icon-code" src="img/IconesCode.png" v-on:click="activeSection = 'hacking'">
-				<img id="icon-flashlight" src="img/IconesLampe.png" v-on:click="flashlightSwitch()">
-				<img id="icon-scanner" src="img/IconesRA.png" v-on:click="activeSection = 'scanning'">
+				<div class="icon-container">
+					<img class="icon icon-side" src="img/IconesCode.png" v-on:click="activeSection = 'hacking'">
+				</div>
+				<div class="icon-container">
+					<img class="icon icon-middle" src="img/IconesLampe.png" v-on:click="flashlightSwitch()">
+				</div>
+				<div class="icon-container">
+					<img class="icon icon-side" src="img/IconesRA.png" v-on:click="activeSection = 'scanning'">
+				</div>
 			</nav>
 
 		</div>

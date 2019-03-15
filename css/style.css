@@ -5,15 +5,20 @@ Général
 -----------------------*/
 
 body {
-  background: #242424;
-  margin: 0;
-  color: #fafafa;
+  font-family: 'Share Tech Mono', monospace;
   text-align: center;
+  margin: 0;
+  background: #242424;
+  color: #737373;
 }
 
 .container {
   border-bottom: solid;
   border-top: solid;
+}
+
+#hacking h1 {
+  font-size: 1.5em;
 }
 
 /*-----------------------
@@ -48,11 +53,38 @@ Section "piratage"
   background-image: url("../img/binaire.jpg");
 }
 
+input[type=text] {
+  background-color: #242424;
+  box-sizing: border-box;
+  border: 2px solid #737373;
+  border-radius: 75px;
+  color: #737373;
+  padding: 15px 10px;
+  text-align: center;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.25em;
+}
+
+input[type=text]:focus {
+  border-color: #56c2b0;
+}
+
+input[type=button],
+input[type=submit],
+input[type=reset] {
+  background-color: #242424;
+  border: none;
+  color: #56c2b0;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: 'Share Tech Mono', monospace;
+  text-align: center;
+  font-size: larger;
+}
+
 /*------------------
 Image Derrière
 -------------------*/
-
-
 
 #scanning .container {
   height: 329px;
@@ -66,6 +98,8 @@ Menu de navigation
 ------------------------*/
 
 nav {
+  display: flex;
+  align-items: center;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -73,27 +107,16 @@ nav {
   width: 100vw;
 }
 
-nav .div {
+.icon-container {
   width: 33%;
 }
 
-#icon-code {
-  float: left;
-  width: 25%;
-  padding: 3%;
-  margin-left: 2%;
+.icon-side {
+  width: 80%;
+  margin: auto;
 }
 
-#icon-flashlight {
-  float: left;
-  width: 17%;
-  padding: 3%;
-  margin-right: 5%;
-  margin-left: 5%;
-}
-
-#icon-scanner {
-  float: left;
-  width: 25%;
-  padding: 3%;
+.icon-middle {
+  width: 60%;
+  margin: auto;
 }
