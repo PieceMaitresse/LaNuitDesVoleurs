@@ -2,35 +2,39 @@ const app = new Vue({
     el: '#app',
     
     data: {
+        inputCode: '',
         flashlight: false,
         activeSection: 'hacking',
-        timer: 3600,    // 3600 secondes = 1 heure
-        userCode: '',
+        timer: 3600,    // 1 heure
+        user: {
+            name: 'Gucci',
+            cash: 0
+        },
         codes: [
             {
                 id: 1,
                 password: 'GucciGang69',
-                money: 5000
+                cash: 5000
             },
             {
                 id: 2,
                 password: 'GucciGang70',
-                money: 15250
+                cash: 15250
             },
             {
                 id: 3,
                 password: 'GucciGang71',
-                money: 25000
+                cash: 25000
             },
             {
                 id: 4,
                 password: 'GucciGang72',
-                money: 34500
+                cash: 34500
             },
             {
                 id: 5,
                 password: 'GucciGang73',
-                money: 125000
+                cash: 125000
             }
         ],
     },
@@ -38,21 +42,22 @@ const app = new Vue({
     methods: {
         verifyCode() {
             // Vérification du code :
-            this.codes.forEach(element => {
-                if (this.userCode == element.password) {
+            this.codes.forEach(code => {
+                if (this.inputCode == code.password) {
                     // Lorsqu'un code est vérifié, il est retiré de la liste des codes :
-                    this.codes.splice(element.id-1, 1);
-                    // Le joueur reçoit le "money" du code :
-                    this.getReward(element.money);
+                    this.codes.splice(code.id-1, 1);
+                    // Le joueur reçoit le "cash" du code :
+                    this.getMoney(code.cash);
                 }
             });
 
             // Réinitialisation du code entré par le joueur :
-            this.userCode = '';
+            this.inputCode = '';
         },
 
-        getReward(money) {
-            alert(money);
+        getMoney(cash) {
+            this.user.cash += cash;
+            alert(cash);
         },
 
         flashlightSwitch() {
@@ -67,9 +72,9 @@ const app = new Vue({
     },
 
     computed: {
-        now() {
+        /* now() {
             return new Date().getTime();
-        },
+        }, */
 
         timeLeft() {
             // Affichage du temps restant en minutes :

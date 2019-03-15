@@ -33,9 +33,13 @@
 					<div id="codeInput">
 						<h3> Entrer le code </h3>
 						<div>
-							<input type="text" name="codeFinal" placeholder="Entrez un code" v-model="userCode" @keyup.enter="verifyCode"><br>
+							<input type="text" name="codeFinal" placeholder="Entrez un code" v-model="inputCode" @keyup.enter="verifyCode"
+							 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+							<br>
+							<br>
 							<input type="submit" value="Valider" v-on:click="verifyCode">
 						</div>
+						<p v-if="user.cash > 0">Argent volé : {{ user.cash }} $</p>
 					</div>
 				</div>
 			</section>
