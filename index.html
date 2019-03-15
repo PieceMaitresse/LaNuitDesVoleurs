@@ -22,7 +22,7 @@
 		<div id="app">
 
 			<!-- MINUTEUR -->
-			<section id="timer" class="container">
+			<section id="timer" class="container"> 
 				<h1 class="no-margin">Temps restant</h1>
 				<p>{{ timeLeft }}</p>
 			</section>
@@ -44,7 +44,7 @@
 				<!-- SCANNER UN CODE -->
 				<section id="scanning" class="container no-padding vertical-align-container" v-else-if="activeSection == 'scanning'">
 					<div class="vertical-align-item">
-						<h1>Scannez un code</h1>
+						<h1">Scannez un code</h1>
 					</div>
 				</section>
 
@@ -53,7 +53,7 @@
 			<!-- MENU DE NAVIGATION -->
 			<nav>
 				<div class="icon-container">
-					<img class="icon icon-side" src="img/IconesCode.png" v-on:click="activeSection = 'hacking'">
+					<img class="icon icon-side" src="img/IconesCode.png" v-on:click="activeSection = 'scanning'">
 				</div>
 				<div class="icon-container">
 					<img class="icon icon-middle" src="img/IconesLampe.png" v-on:click="flashlightSwitch()">
