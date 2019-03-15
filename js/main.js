@@ -2,14 +2,18 @@ const app = new Vue({
     el: '#app',
     
     data: {
-        inputCode: '',
-        flashlight: false,
-        activeSection: 'hacking',
-        timer: 3600,    // 1 heure
+        inputCode: '',              // Code entré par l'utilisateur
+        flashlight: false,          // État de la lampe de poche (ON/OFF)
+        activeSection: 'hacking',   // Section qui est affiché sur l'appliaction (scan/section pour les codes)
+        timer: 3600,                // Temps limite du jeu (3600 secondes = 1 heure)
+        
+        // Données du joueur :
         user: {
-            name: 'Gucci',
+            name: 'John Wick',
             cash: 0
         },
+
+        // Les codes qui sont valides :
         codes: [
             {
                 id: 1,
@@ -41,7 +45,7 @@ const app = new Vue({
 
     methods: {
         verifyCode() {
-            // Vérification du code :
+            // Vérification du code entré par le joueur :
             this.codes.forEach(code => {
                 if (this.inputCode == code.password) {
                     // Lorsqu'un code est vérifié, il est retiré de la liste des codes :
@@ -61,6 +65,7 @@ const app = new Vue({
         },
 
         flashlightSwitch() {
+            // Allumage ou éteignange de la lampde de poche :
             if (this.flashlight == false) {
                 this.flashlight = true;
                 alert('flashlight on');
@@ -72,10 +77,6 @@ const app = new Vue({
     },
 
     computed: {
-        /* now() {
-            return new Date().getTime();
-        }, */
-
         timeLeft() {
             // Affichage du temps restant en minutes :
             return Math.round(this.timer / 60);
@@ -83,6 +84,7 @@ const app = new Vue({
     },
 });
 
+// Démmarage du minuteur dès que l'application est lancée :
 setInterval(() => {
     app.timer --;
 }, 1000);

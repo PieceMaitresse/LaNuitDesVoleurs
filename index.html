@@ -13,47 +13,51 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
 		<script defer src="js/main.js"></script>
 	</head>
 
 	<body>
-		<!-- Début de la section dans laquelle VueJS est utilisé -->
 		<div id="app">
 
 			<!-- MINUTEUR -->
-			<section id="timer" class="container"> 
-				<h1 class="no-margin">Temps restant</h1>
-				<p>{{ timeLeft }}</p>
+			<section id="timer" class="container vertical-align no-padding">
+				<div>
+					<h1>Temps restant</h1>
+					<p>{{ timeLeft }}</p>
+				</div>
 			</section>
+			<!-- ./MINUTEUR -->
 
-				<!-- PIRATER UN CODE -->
-				<section id="hacking" class="container vertical-align-container" v-if="activeSection == 'hacking'">
-					<div class="vertical-align-item">
-						<h1>Argent : {{ user.cash }} $</h1>
-						<div>
-							<input type="text" name="codeFinal" placeholder="Entrez un code" v-model="inputCode" @keyup.enter="verifyCode"
-							 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-							<br>
-							<br>
-							<input type="submit" value="Valider" v-on:click="verifyCode">
-						</div>
+
+			<!-- PIRATAGE -->
+			<section id="hacking" class="container vertical-align no-padding" v-if="activeSection == 'hacking'">
+				<div>
+					<h1>Argent : {{ user.cash }} $</h1>
+					<div>
+						<input type="text" name="codeFinal" placeholder="Entrez un code" v-model="inputCode" @keyup.enter="verifyCode"
+						 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+						<br>
+						<br>
+						<input type="submit" value="Valider" v-on:click="verifyCode">
 					</div>
-				</section>
-	
-				<!-- SCANNER UN CODE -->
-				<section id="scanning" class="container no-padding vertical-align-container" v-else-if="activeSection == 'scanning'">
-					<div class="vertical-align-item">
-						<h1">Scannez un code</h1>
-					</div>
-				</section>
+				</div>
+			</section>
+			<!-- ./PIRATAGE -->
 
-			</div>
 
-			<!-- MENU DE NAVIGATION -->
+			<!-- SCANNEUR -->
+			<section id="scanning" class="container vertical-align no-padding" v-else-if="activeSection == 'scanning'">
+				<div>
+					<h1>Scannez un code</h1>
+				</div>
+			</section>
+			<!-- ./SCANNEUR -->
+
+
+			<!-- NAVIGATION -->
 			<nav>
 				<div class="icon-container">
-					<img class="icon icon-side" src="img/IconesCode.png" v-on:click="activeSection = 'scanning'">
+					<img class="icon icon-side" src="img/IconesCode.png" v-on:click="activeSection = 'hacking'">
 				</div>
 				<div class="icon-container">
 					<img class="icon icon-middle" src="img/IconesLampe.png" v-on:click="flashlightSwitch()">
@@ -62,6 +66,7 @@
 					<img class="icon icon-side" src="img/IconesRA.png" v-on:click="activeSection = 'scanning'">
 				</div>
 			</nav>
+			<!-- ./NAVIGATION -->
 
 		</div>
 	</body>

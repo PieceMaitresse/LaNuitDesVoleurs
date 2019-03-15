@@ -20,9 +20,10 @@ body {
   padding: 0;
 }
 
-#hacking, #scanning {
-  height: 50%;
-
+#hacking,
+#scanning {
+  height: 60%;
+  background-image: url("../img/binaire.jpg");
 }
 
 .container {
@@ -41,14 +42,10 @@ h1 {
   padding: 0;
 }
 
-.vertical-align-container {
+.vertical-align {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.vertical-align-item {
-  background-color: red;
 }
 
 /*-----------------------
@@ -101,16 +98,6 @@ input[type=reset] {
   font-size: larger;
 }
 
-/*------------------
-Image Derrière
--------------------*/
-
-#scanning {
-  background-image: url("../img/binaire.jpg");
-  border-bottom: solid;
-  border-top: solid;
-}
-
 /*-----------------------
 Menu de navigation
 ------------------------*/
@@ -131,11 +118,11 @@ nav {
 }
 
 .icon-side {
-  width: 80%;
+  width: 70%;
   margin: auto;
 }
 
 .icon-middle {
-  width: 60%;
+  width: 50%;
   margin: auto;
 }
