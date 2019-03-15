@@ -1,59 +1,60 @@
 <!doctype html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-    <meta name="description" content="">
-	<meta name="keywords" content="">
-	<meta name="author" content="">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<title></title>
 
-</head>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="author" content="">
 
-<body>
-<!-- Entête avec chrono -->
-	<section>
-	<div id="hautChrono">
-		<h2 id="TexteIntro"> </h2>
-		<!-- Insérez le chrono TEST -->
-		<p id="texteTemps"> 00:00:00 </p>
-		</div>
-	</div>
-	</section>
-<!-- Entrez le code -->	
-	<section>
-	<!-- section avec image de code -->
-	<div>
-		<div id="enveloppeEntrerCode">
-		<!-- -->
-			<div id="boxEntrerCode">
-				<h3> Entrer le code </h3>
-				<div>
-				<!-- Input pour mettre le code à entrer -->
-					<form action="/action_page.php">
-					<input type="text" name="codeFinal" value="XXXXXXXXXXXXXXX"><br>
-					<input type="submit" value="Valider">
-					</form>
+		<title>La Nuit des Voleurs</title>
+
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
+		<script defer src="js/main.js"></script>
+	</head>
+
+	<body>
+		<!-- Début de la section dans laquelle VueJS est utilisé -->
+		<div id="app">
+
+			<!-- CHRONOMÈTRE -->
+			<section id="timer">
+				<h1>Temps restant</h1>
+				<p>{{ timeLeft }}</p>
+			</section>
+
+			<!-- PIRATER UN CODE -->
+			<section id="hacking" v-if="activeSection == 'hacking'">
+				<div class="container">
+					<div id="codeInput">
+						<h3> Entrer le code </h3>
+						<div>
+							<input type="text" name="codeFinal" placeholder="Entrez un code" v-model="userCode" @keyup.enter="verifyCode"><br>
+							<input type="submit" value="Valider" v-on:click="verifyCode">
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
-	</div>
-	</section>
-<!-- menue du bas -->	
-	<section>
-	<div id="menueBas">
-		<div>
-			<a href="index.html" class="active logo"><img id="imgCode" src="img/IconesCode.png"></a>
-		</div>
-		<div>
-			<a href="lampe.html" class="active logo"><img id="imgLampe" src="img/IconesLampe.png"></a>
-		</div>
-		<div>
-			<a href="qr.html" class="active logo"><img id="imgCodeRA" src="img/IconesRA.png"></a>
-		</div>
-	</div>
-	</section>
+			</section>
 
-</body>
+			<!-- SCANNER UN CODE -->
+			<section id="scanning" v-else-if="activeSection == 'scanning'">
+				<div class="container">
+					<p>Scannez un code</p>
+				</div>
+			</section>
+
+			<!-- MENU DE NAVIGATION -->
+			<nav>
+				<img id="icon-code" src="img/IconesCode.png" v-on:click="activeSection = 'hacking'">
+				<img id="icon-flashlight" src="img/IconesLampe.png" v-on:click="flashlightSwitch()">
+				<img id="icon-scanner" src="img/IconesRA.png" v-on:click="activeSection = 'scanning'">
+			</nav>
+
+		</div>
+	</body>
+
 </html>
