@@ -21,16 +21,15 @@
 		<!-- Début de la section dans laquelle VueJS est utilisé -->
 		<div id="app">
 
-			<!-- CHRONOMÈTRE -->
-			<section id="timer">
-				<h1>Temps restant</h1>
+			<!-- MINUTEUR -->
+			<section id="timer" class="container">
+				<h1 class="no-margin">Temps restant</h1>
 				<p>{{ timeLeft }}</p>
 			</section>
 
-			<!-- PIRATER UN CODE -->
-			<section id="hacking" v-if="activeSection == 'hacking'">
-				<div class="container">
-					<div id="codeInput">
+				<!-- PIRATER UN CODE -->
+				<section id="hacking" class="container vertical-align-container" v-if="activeSection == 'hacking'">
+					<div class="vertical-align-item">
 						<h1>Argent : {{ user.cash }} $</h1>
 						<div>
 							<input type="text" name="codeFinal" placeholder="Entrez un code" v-model="inputCode" @keyup.enter="verifyCode"
@@ -40,15 +39,16 @@
 							<input type="submit" value="Valider" v-on:click="verifyCode">
 						</div>
 					</div>
-				</div>
-			</section>
+				</section>
+	
+				<!-- SCANNER UN CODE -->
+				<section id="scanning" class="container no-padding vertical-align-container" v-else-if="activeSection == 'scanning'">
+					<div class="vertical-align-item">
+						<h1>Scannez un code</h1>
+					</div>
+				</section>
 
-			<!-- SCANNER UN CODE -->
-			<section id="scanning" v-else-if="activeSection == 'scanning'">
-				<div class="container">
-					<p>Scannez un code</p>
-				</div>
-			</section>
+			</div>
 
 			<!-- MENU DE NAVIGATION -->
 			<nav>
