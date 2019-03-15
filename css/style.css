@@ -1,101 +1,99 @@
 @charset "utf-8";
-/* CSS Document */
+
+/*-----------------------
+Général
+-----------------------*/
+
 body {
   background: #242424;
   margin: 0;
   color: #fafafa;
+  text-align: center;
+}
+
+.container {
+  border-bottom: solid;
+  border-top: solid;
 }
 
 /*-----------------------
-
-Chrono
-
+Section "timer"
 -----------------------*/
-#hautChrono{
-width: 100%;
-height: 30%;
-padding: 3%;
+
+#timer {
+  width: 100vw;
+  height: 25%;
+  padding: 3%;
+  align-content: center;
+  text-align: center;
 }
 
-#TexteIntro{
-	text-align: center;
+
+/*------------------
+Section "piratage"
+------------------*/
+
+#codeInput {
+  margin-top: 25%;
+  padding-bottom: 6%;
+  padding-left: 20%;
+  padding-right: 15%;
+  border-bottom: solid;
+  border-top: solid;
+  background-color: #242424;
 }
 
-#texteTemps{
-	text-align: center;
+#hacking .container {
+  height: 329px;
+  background-image: url("../img/binaire.jpg");
 }
+
+/*------------------
+Image Derrière
+-------------------*/
+
+
+
+#scanning .container {
+  height: 329px;
+  background-image: url("../img/binaire.jpg");
+  border-bottom: solid;
+  border-top: solid;
+}
+
 /*-----------------------
-
-Menu bas de l'application
-
+Menu de navigation
 ------------------------*/
 
-#menueBas{
-  position:fixed;
-   left:0px;
-   bottom:0px;
-   height:23%;
-   width:100%;
+nav {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 25%;
+  width: 100vw;
 }
-#imgCode{
-    float: left;
-    width: 25%;
-    padding: 3%;
-    margin-left: 2%;
+
+nav .div {
+  width: 33%;
 }
-#imgLampe{
-    float: left;
-    width: 17%;
-    padding: 3%;
-    margin-right: 5%;
-    margin-left: 5%;
-}
-#imgCodeRA{
+
+#icon-code {
   float: left;
   width: 25%;
   padding: 3%;
+  margin-left: 2%;
 }
 
-/*------------------
-
-Box entrer code
-
-------------------*/
-
-#boxEntrerCode{
-    margin-top: 25%;
-    padding-bottom: 6%;
-    padding-left: 20%;
-    padding-right: 15%;
-    border-bottom: solid;
-    border-top: solid;
-    background-color: #242424;
+#icon-flashlight {
+  float: left;
+  width: 17%;
+  padding: 3%;
+  margin-right: 5%;
+  margin-left: 5%;
 }
 
-/*------------------
-
-Image Derrière
-
--------------------*/
-#enveloppeEntrerCode{
-    height: 329px;
-    border-bottom: solid;
-    border-top: solid;
-    background-image: url("../img/binaire.jpg");
-}
-
-
-/*------------------
-
-Espace scane
-
-------------------*/
-#espaceScane{
-    height: 329px;
-    border-bottom: solid;
-    border-top: solid;
-}
-#textScane{
-  margin-left: 10%;
-
+#icon-scanner {
+  float: left;
+  width: 25%;
+  padding: 3%;
 }
