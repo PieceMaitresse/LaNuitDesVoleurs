@@ -102,7 +102,7 @@ input[type=reset] {
   cursor: pointer;
   font-family: 'Share Tech Mono', monospace;
   text-align: center;
-  font-size: larger;
+  font-size: 1.5em;
 }
 
 /*------------------
