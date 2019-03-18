@@ -6,10 +6,35 @@ const app = new Vue({
         flashlight: false,
         activeSection: 'hacking',
         timer: 3600,    // 1 heure
+
+        // Images qui sont affichées dans le menu de navigation :
+        activeMenuImage: {
+            hacking: 'img/IconesCodeActive.png',
+            flashlight: 'img/IconesLampe.png',
+            scanning: 'img/IconesRA.png'
+        },
+
+        // URL de toutes les images du menu de navigation :
+        imageSrc: {
+            hacking: {
+                normal: 'img/IconesCode.png',
+                focus: 'img/IconesCodeActive.png'
+            },
+            flashlight: {
+                normal: 'img/IconesLampe.png',
+                focus: 'img/IconesLampeActive.png'
+            },
+            scanning: {
+                normal: 'img/IconesRA.png',
+                focus: 'img/IconesRAActive.png'
+            },
+        },
+
         user: {
             name: 'Gucci',
             cash: 0
         },
+
         codes: [
             {
                 id: 1,
@@ -63,12 +88,31 @@ const app = new Vue({
         flashlightSwitch() {
             if (this.flashlight == false) {
                 this.flashlight = true;
+                this.activeMenuImage.flashlight = this.imageSrc.flashlight.focus; 
                 alert('flashlight on');
             } else {
                 this.flashlight = false;
+                this.activeMenuImage.flashlight = this.imageSrc.flashlight.normal; 
                 alert('flashlight off');
             }
         },
+
+        changeSection(section) {
+            switch (section) {
+                case 'hacking':
+                    this.activeMenuImage.hacking = this.imageSrc.hacking.focus; 
+                    this.activeMenuImage.scanning = this.imageSrc.scanning.normal; 
+                    break;
+                    
+                    case 'scanning':
+                    this.activeMenuImage.scanning = this.imageSrc.scanning.focus; 
+                    this.activeMenuImage.hacking = this.imageSrc.hacking.normal; 
+                    break;
+            
+                default:
+                    break;
+            }
+        }
     },
 
     computed: {
