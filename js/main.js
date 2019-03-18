@@ -102,11 +102,13 @@ const app = new Vue({
         changeSection(section) {
             switch (section) {
                 case 'hacking':
+                    this.activeSection = 'hacking';
                     this.activeMenuImage.hacking = this.imageSrc.hacking.focus; 
                     this.activeMenuImage.scanning = this.imageSrc.scanning.normal; 
                     break;
                     
-                    case 'scanning':
+                case 'scanning':
+                    this.activeSection = 'scanning';
                     this.activeMenuImage.scanning = this.imageSrc.scanning.focus; 
                     this.activeMenuImage.hacking = this.imageSrc.hacking.normal; 
                     break;
