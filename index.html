@@ -22,15 +22,17 @@
 		<div id="app">
 
 			<!-- CHRONOMÈTRE -->
-			<section id="timer">
-				<h1>Temps restant</h1>
-				<p>{{ timeLeft }}</p>
+			<section id="timer" class="container vertical-align no-padding">
+				<div>
+					<h1>Temps restant</h1>
+					<p>{{ timeLeft }}</p>
+				</div>
 			</section>
 
 			<!-- PIRATER UN CODE -->
-			<section id="hacking" v-if="activeSection == 'hacking'">
-				<div class="container">
-					<div id="codeInput">
+			<section id="hacking"  class="container vertical-align no-padding" v-if="activeSection == 'hacking'">
+				<div>
+					
 						<h1>Argent : {{ user.cash }} $</h1>
 						<div>
 							<input type="text" name="codeFinal" placeholder="Entrez un code" v-model="inputCode" @keyup.enter="verifyCode"
@@ -39,13 +41,13 @@
 							<br>
 							<input type="submit" value="Valider" v-on:click="verifyCode">
 						</div>
-					</div>
+					
 				</div>
 			</section>
 
 			<!-- SCANNER UN CODE -->
-			<section id="scanning" v-else-if="activeSection == 'scanning'">
-				<div class="container">
+			<section id="scanning" class="container vertical-align no-padding" v-else-if="activeSection == 'scanning'">
+				<div >
 					<p>Scannez un code</p>
 				</div>
 			</section>

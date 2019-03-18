@@ -8,28 +8,55 @@ body {
   font-family: 'Share Tech Mono', monospace;
   text-align: center;
   margin: 0;
+  padding: 0;
   background: #242424;
   color: #f0f0f0;
+  height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100vw;
+}
+
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#hacking,
+#scanning {
+  height: 60%;
+  background-image: url("../img/binaire.jpg");
 }
 
 .container {
-  border-bottom: solid;
-  border-top: solid;
+  padding: 5%;
 }
 
-#hacking h1 {
+h1 {
   font-size: 1.5em;
 }
 
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.vertical-align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /*-----------------------
 Section "timer"
 -----------------------*/
 
 #timer {
-  width: 100vw;
-  height: 25%;
-  padding: 3%;
-  align-content: center;
+  border-bottom: solid;
+  top: 0;
+  height: 15%;
   text-align: center;
 }
 
@@ -48,10 +75,6 @@ Section "piratage"
   background-color: #242424;
 }
 
-#hacking .container {
-  height: 329px;
-  background-image: url("../img/binaire.jpg");
-}
 
 input[type=text] {
   background-color: #242424;
@@ -87,10 +110,9 @@ Image Derrière
 -------------------*/
 
 #scanning .container {
-  height: 329px;
+  height: 60%;
   background-image: url("../img/binaire.jpg");
-  border-bottom: solid;
-  border-top: solid;
+
 }
 
 /*-----------------------
@@ -98,13 +120,13 @@ Menu de navigation
 ------------------------*/
 
 nav {
+  background: #242424;
+  bottom: 0;
   display: flex;
   align-items: center;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  height: 25%;
-  width: 100vw;
+  height: 20%;
+  border-top: solid;
+  padding: 5%;
 }
 
 .icon-container {
@@ -112,7 +134,7 @@ nav {
 }
 
 .icon-side {
-  width: 80%;
+  width: 70%;
   margin: auto;
 }
 
