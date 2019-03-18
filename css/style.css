@@ -9,7 +9,7 @@ body {
   text-align: center;
   margin: 0;
   background: #242424;
-  color: #737373;
+  color: #f0f0f0;
 }
 
 .container {
@@ -56,9 +56,9 @@ Section "piratage"
 input[type=text] {
   background-color: #242424;
   box-sizing: border-box;
-  border: 2px solid #737373;
+  border: 2px solid #f0f0f0;
   border-radius: 75px;
-  color: #737373;
+  color: #f0f0f0;
   padding: 15px 10px;
   text-align: center;
   font-family: 'Share Tech Mono', monospace;
