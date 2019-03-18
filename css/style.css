@@ -10,7 +10,7 @@ body {
   margin: 0;
   padding: 0;
   background: #242424;
-  color: #737373;
+  color: #f0f0f0;
   height: 100vh; /* Fallback for browsers that do not support Custom Properties */
   height: calc(var(--vh, 1vh) * 100);
   width: 100vw;
@@ -49,7 +49,6 @@ h1 {
   align-items: center;
   justify-content: center;
 }
-
 /*-----------------------
 Section "timer"
 -----------------------*/
@@ -74,9 +73,9 @@ Section "piratage"
 input[type=text] {
   background-color: #242424;
   box-sizing: border-box;
-  border: 2px solid #737373;
+  border: 2px solid #f0f0f0;
   border-radius: 75px;
-  color: #737373;
+  color: #f0f0f0;
   padding: 15px 10px;
   text-align: center;
   font-family: 'Share Tech Mono', monospace;
@@ -98,6 +97,16 @@ input[type=reset] {
   font-family: 'Share Tech Mono', monospace;
   text-align: center;
   font-size: larger;
+}
+
+/*------------------
+Image Derrière
+-------------------*/
+
+#scanning .container {
+  height: 60%;
+  background-image: url("../img/binaire.jpg");
+
 }
 
 /*-----------------------

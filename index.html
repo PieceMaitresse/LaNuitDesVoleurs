@@ -29,41 +29,42 @@
 			<!-- ./MINUTEUR -->
 
 
-			<!-- PIRATAGE -->
-			<section id="hacking" class="container vertical-align no-padding" v-if="activeSection == 'hacking'">
+			<!-- PIRATER UN CODE -->
+			<section id="hacking"  class="container vertical-align no-padding" v-if="activeSection == 'hacking'">
 				<div>
-					<h1>Argent : {{ user.cash }} $</h1>
-					<div>
-						<input type="text" name="codeFinal" placeholder="Entrez un code" v-model="inputCode" @keyup.enter="verifyCode"
-						 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-						<br>
-						<br>
-						<input type="submit" value="Valider" v-on:click="verifyCode">
-					</div>
+					
+						<h1>Argent : {{ user.cash }} $</h1>
+						<div>
+							<input type="text" name="codeFinal" placeholder="Entrez un code" v-model="inputCode" @keyup.enter="verifyCode"
+							 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+							<br>
+							<br>
+							<input type="submit" value="Valider" v-on:click="verifyCode">
+						</div>
+					
 				</div>
 			</section>
 			<!-- ./PIRATAGE -->
 
-
-			<!-- SCANNEUR -->
+			<!-- SCANNER UN CODE -->
 			<section id="scanning" class="container vertical-align no-padding" v-else-if="activeSection == 'scanning'">
-				<div>
-					<h1>Scannez un code</h1>
+				<div >
+					<p>Scannez un code</p>
 				</div>
 			</section>
 			<!-- ./SCANNEUR -->
 
 
-			<!-- NAVIGATION -->
+			<!-- MENU DE NAVIGATION --> 
 			<nav>
 				<div class="icon-container">
-					<img class="icon icon-side" src="img/IconesCode.png" v-on:click="activeSection = 'hacking'">
+					<img class="icon icon-side" v-bind:src="activeMenuImage.hacking" v-on:click="changeSection('hacking')">
 				</div>
 				<div class="icon-container">
-					<img class="icon icon-middle" src="img/IconesLampe.png" v-on:click="flashlightSwitch()">
+					<img class="icon icon-middle" v-bind:src="activeMenuImage.flashlight" v-on:click="flashlightSwitch()">
 				</div>
 				<div class="icon-container">
-					<img class="icon icon-side" src="img/IconesRA.png" v-on:click="activeSection = 'scanning'">
+					<img class="icon icon-side" v-bind:src="activeMenuImage.scanning" v-on:click="changeSection('scanning')">
 				</div>
 			</nav>
 			<!-- ./NAVIGATION -->

@@ -2,12 +2,34 @@ const app = new Vue({
     el: '#app',
     
     data: {
-        inputCode: '',              // Code entré par l'utilisateur
-        flashlight: false,          // État de la lampe de poche (ON/OFF)
-        activeSection: 'hacking',   // Section qui est affiché sur l'appliaction (scan/section pour les codes)
-        timer: 3600,                // Temps limite du jeu (3600 secondes = 1 heure)
-        
-        // Données du joueur :
+        inputCode: '',
+        flashlight: false,
+        activeSection: 'hacking',
+        timer: 3600,    // 1 heure
+
+        // Images qui sont affichées dans le menu de navigation :
+        activeMenuImage: {
+            hacking: 'img/IconesCodeActive.png',
+            flashlight: 'img/IconesLampe.png',
+            scanning: 'img/IconesRA.png'
+        },
+
+        // URL de toutes les images du menu de navigation :
+        imageSrc: {
+            hacking: {
+                normal: 'img/IconesCode.png',
+                focus: 'img/IconesCodeActive.png'
+            },
+            flashlight: {
+                normal: 'img/IconesLampe.png',
+                focus: 'img/IconesLampeActive.png'
+            },
+            scanning: {
+                normal: 'img/IconesRA.png',
+                focus: 'img/IconesRAActive.png'
+            },
+        },
+
         user: {
             name: 'John Wick',
             cash: 0
@@ -68,12 +90,31 @@ const app = new Vue({
             // Allumage ou éteignange de la lampde de poche :
             if (this.flashlight == false) {
                 this.flashlight = true;
+                this.activeMenuImage.flashlight = this.imageSrc.flashlight.focus; 
                 alert('flashlight on');
             } else {
                 this.flashlight = false;
+                this.activeMenuImage.flashlight = this.imageSrc.flashlight.normal; 
                 alert('flashlight off');
             }
         },
+
+        changeSection(section) {
+            switch (section) {
+                case 'hacking':
+                    this.activeMenuImage.hacking = this.imageSrc.hacking.focus; 
+                    this.activeMenuImage.scanning = this.imageSrc.scanning.normal; 
+                    break;
+                    
+                    case 'scanning':
+                    this.activeMenuImage.scanning = this.imageSrc.scanning.focus; 
+                    this.activeMenuImage.hacking = this.imageSrc.hacking.normal; 
+                    break;
+            
+                default:
+                    break;
+            }
+        }
     },
 
     computed: {
